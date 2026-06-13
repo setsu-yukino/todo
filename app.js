@@ -125,4 +125,21 @@ document.querySelectorAll(".filter").forEach(btn => {
   });
 });
 
+// --- メモ欄（自由に書いて置いておける場所・自動保存） ---
+const MEMO_KEY = "todo.memo.v1";
+const memo = document.getElementById("memo");
+const memoStatus = document.getElementById("memo-status");
+memo.value = localStorage.getItem(MEMO_KEY) || "";
+
+let memoTimer;
+memo.addEventListener("input", () => {
+  memoStatus.textContent = "入力中...";
+  clearTimeout(memoTimer);
+  memoTimer = setTimeout(() => {
+    localStorage.setItem(MEMO_KEY, memo.value);
+    memoStatus.textContent = "保存しました";
+    setTimeout(() => { memoStatus.textContent = "自動保存"; }, 1500);
+  }, 400);
+});
+
 render();

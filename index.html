@@ -7,28 +7,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <header>
-      <h1>Todo</h1>
-      <span class="date" id="date"></span>
-    </header>
-    <div class="card">
-      <div class="input-row">
-        <input id="new-task" type="text" placeholder="新しいタスクを入力..." autocomplete="off" />
-        <button class="add-btn" id="add">追加</button>
-      </div>
-      <ul id="list"></ul>
-      <div class="empty" id="empty" hidden>タスクはありません 🎉</div>
-      <footer>
-        <span id="count">0 件</span>
-        <div class="filters">
-          <button class="filter active" data-filter="all">すべて</button>
-          <button class="filter" data-filter="active">未完了</button>
-          <button class="filter" data-filter="done">完了</button>
+  <div class="layout">
+    <div class="app">
+      <header>
+        <h1>Todo</h1>
+        <span class="date" id="date"></span>
+      </header>
+      <div class="card">
+        <div class="input-row">
+          <input id="new-task" type="text" placeholder="新しいタスクを入力..." autocomplete="off" />
+          <button class="add-btn" id="add">追加</button>
         </div>
-        <button class="clear" id="clear">完了を削除</button>
-      </footer>
+        <ul id="list"></ul>
+        <div class="empty" id="empty" hidden>タスクはありません 🎉</div>
+        <footer>
+          <span id="count">0 件</span>
+          <div class="filters">
+            <button class="filter active" data-filter="all">すべて</button>
+            <button class="filter" data-filter="active">未完了</button>
+            <button class="filter" data-filter="done">完了</button>
+          </div>
+          <button class="clear" id="clear">完了を削除</button>
+        </footer>
+      </div>
     </div>
+
+    <aside class="memo">
+      <header>
+        <h2>メモ</h2>
+        <span class="memo-status" id="memo-status">自動保存</span>
+      </header>
+      <div class="card memo-card">
+        <textarea id="memo" placeholder="ここに自由にタスクを書いて置いておけます。&#10;追加・削除ボタンは不要 — 入力すると自動で保存されます。"></textarea>
+      </div>
+    </aside>
   </div>
 
   <script src="app.js"></script>

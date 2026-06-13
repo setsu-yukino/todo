@@ -21,9 +21,26 @@ body {
   padding: 48px 16px;
   -webkit-font-smoothing: antialiased;
 }
-.app {
+.layout {
   width: 100%;
-  max-width: 520px;
+  max-width: 940px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.app {
+  flex: 1 1 460px;
+  min-width: 0;
+}
+.memo {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 720px) {
+  .layout { flex-direction: column; }
+  .app, .memo { flex: 1 1 auto; width: 100%; }
 }
 header {
   display: flex;
@@ -32,6 +49,23 @@ header {
   margin-bottom: 20px;
 }
 h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.memo h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.memo-status { color: var(--muted); font-size: 12px; }
+.memo-card { padding: 4px; }
+#memo {
+  width: 100%;
+  min-height: 320px;
+  resize: vertical;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+  padding: 12px 14px;
+}
+#memo::placeholder { color: var(--muted); }
 .date { color: var(--muted); font-size: 13px; }
 .card {
   background: var(--card);
